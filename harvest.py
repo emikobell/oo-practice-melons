@@ -129,8 +129,21 @@ class Melon:
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
+    
+    melon_objects = []
+    melons_by_id = make_melon_type_lookup(melon_types)
 
-    # Fill in the rest
+    melon_objects.append(Melon(melons_by_id['yw'], 8, 7, 2, 'Sheila'))
+    melon_objects.append(Melon(melons_by_id['yw'], 3, 4, 2, 'Sheila'))
+    melon_objects.append(Melon(melons_by_id['yw'], 9, 8, 3, 'Sheila'))
+    melon_objects.append(Melon(melons_by_id['cas'], 10, 6, 35, 'Sheila'))
+    melon_objects.append(Melon(melons_by_id['cren'], 8, 9, 35, 'Michael'))
+    melon_objects.append(Melon(melons_by_id['cren'], 8, 2, 35, 'Michael'))
+    melon_objects.append(Melon(melons_by_id['cren'], 2, 3, 4, 'Michael'))
+    melon_objects.append(Melon(melons_by_id['musk'], 6, 7, 4, 'Michael'))
+    melon_objects.append(Melon(melons_by_id['yw'], 7, 10, 3, 'Sheila'))
+    
+    return melon_objects
 
 
 def get_sellability_report(melons):
