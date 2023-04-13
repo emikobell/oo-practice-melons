@@ -149,4 +149,18 @@ def make_melons(melon_types):
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
+    for melon in melons:
+        # store sellability by callng the method on the melon
+        melon.is_sellable()
+        if melon.sellability:
+            # set sellable_text to (CAN BE SOLD) string
+            sellable_text = "(CAN BE SOLD)"
+        else:
+            sellable_text = "(NOT SELLABLE)"
+            # set sellable_text to (NOT SELLABLE)
+        print(f"Harvested by {melon.harvester} from Field {melon.field} {sellable_text}")
     # Fill in the rest
+
+    # List of melon objects of the class melon
+    # first index of that melon class is a dictionary key of the melon code and value of the melon object
+    # Melon_type is an instance of the melon object (Melon_type class) (and there's also a list of these objects
