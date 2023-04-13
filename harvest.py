@@ -146,6 +146,28 @@ def make_melons(melon_types):
     return melon_objects
 
 
+def make_melons_from_file(filepath):
+
+    melon_objects = []
+    melon_types = make_melon_types()
+    melons_by_id = make_melon_type_lookup(melon_types)
+
+    melon_file = open(filepath)
+
+    for melon in melon_file:
+        melon_details = melon.split()
+        melon_type = melon_details[5]
+        shape = int(melon_details[1])
+        color = int(melon_details[3])
+        field = int(melon_details[-1])
+        harvester = melon_details[-4]
+
+        melon_objects.append(Melon(melons_by_id[melon_type], shape,
+                                   color, field, harvester))
+        
+    return melon_objects
+
+
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
@@ -159,8 +181,5 @@ def get_sellability_report(melons):
             sellable_text = "(NOT SELLABLE)"
             # set sellable_text to (NOT SELLABLE)
         print(f"Harvested by {melon.harvester} from Field {melon.field} {sellable_text}")
-    # Fill in the rest
 
-    # List of melon objects of the class melon
-    # first index of that melon class is a dictionary key of the melon code and value of the melon object
-    # Melon_type is an instance of the melon object (Melon_type class) (and there's also a list of these objects
+    # sellable_text = "(CAN BE SOLD)" if melon.sellability else "(NOT SELLABLE)"
